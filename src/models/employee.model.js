@@ -10,10 +10,10 @@ var Employee = function(employee){
 Employee.getAllCountrys = (result) =>{
     dbConn.query('SELECT * FROM country_table', (err, res)=>{
         if(err){
-            console.log('Error while fetching companys Type', err);
+            console.log('Error while fetching employees', err);
             result(null,err);
         }else{
-            console.log('companys Type fetched successfully');
+            console.log('employees fetched successfully');
             result(null,res);
         }
     })

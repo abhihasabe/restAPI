@@ -1,6 +1,18 @@
 
 const EmployeeModel = require('../models/employee.model');
 
+// get countrys
+exports.getCountrys = (req, res)=> {
+    //console.log('here all employees list');
+    EmployeeModel.getAllCountrys((err, employees) =>{
+        console.log('We are here');
+        if(err)
+        res.send(err);
+        console.log('Country', employees);
+        res.send(employees)
+    })
+}
+
 // get all employee list
 exports.getEmployeeList = (req, res)=> {
     //console.log('here all employees list');
