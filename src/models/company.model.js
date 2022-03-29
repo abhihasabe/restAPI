@@ -15,18 +15,7 @@ var Companys = function(companys){
 }
 
 
-// get all Country
-Companys.getAllCountrys = (result) =>{
-    dbConn.query('SELECT * FROM country_table', (err, res)=>{
-        if(err){
-            console.log('Error while fetching country', err);
-            result(null,err);
-        }else{
-            console.log('country fetched successfully');
-            result(null,res);
-        }
-    })
-}
+
 
 // get all companys City
 Companys.getCityByCountry = (cid, result) =>{
