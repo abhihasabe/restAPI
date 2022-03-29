@@ -7,8 +7,8 @@ const companysController = require('../controllers/company.controller');
 // // get All Countrys
 // router.get('/getCountrys/',companysController.getCountrys);
 
-// // get City By CountryID
-// router.get('/getCityByCountryID/:id',companysController.getCityByCountryID);
+// get City By CountryID
+router.get('/getCityByCountryID/:id',companysController.getCityByCountryID);
 
 // get all companys Type
 router.get('/getcompanytypes/', companysController.getCompanysTypeList);
