@@ -20,7 +20,7 @@ router.get('/', companysController.getCompanysList);
 router.get('/:id',companysController.getCompanyByID);
 
 // create new company
-router.post('/', companysController.createNewCompany);
+router.post('/addcompany', companysController.createNewCompany);
 
 // update company
 router.put('/:id', companysController.updateCompany);

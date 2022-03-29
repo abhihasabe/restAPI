@@ -19,10 +19,10 @@ var Companys = function(companys){
 Companys.getAllCountrys = (result) =>{
     dbConn.query('SELECT * FROM country_table', (err, res)=>{
         if(err){
-            console.log('Error while fetching ountry', err);
+            console.log('Error while fetching companys Type', err);
             result(null,err);
         }else{
-            console.log('Country fetched successfully');
+            console.log('companys Type fetched successfully');
             result(null,res);
         }
     })
@@ -37,7 +37,11 @@ Companys.getCityByCountry = (cid, result) =>{
             result(null,err);
         }else{
             console.log('City fetched successfully');
-            result(null,res);
+            if(res.cid!=null){
+                result(null,res);
+            }else{
+                result(null,"Data Not Found");
+            }
         }
     })
 }
