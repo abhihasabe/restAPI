@@ -14,21 +14,9 @@ var Companys = function(companys){
     this.company_info       =   companys.company_info;
 }
 
-// get all companys Types
-Companys.getAllCompanysTypes = (result) =>{
-    dbConn.query('SELECT * FROM company_types_table', (err, res)=>{
-        if(err){
-            console.log('Error while fetching companys Type', err);
-            result(null,err);
-        }else{
-            console.log('companys Type fetched successfully');
-            result(null,res);
-        }
-    })
-}
 
 // get all companys Country
-Companys.getAllCompanysTypes = (result) =>{
+Companys.getAllCountrys = (result) =>{
     dbConn.query('SELECT * FROM country_table', (err, res)=>{
         if(err){
             console.log('Error while fetching Country', err);
@@ -48,6 +36,19 @@ Companys.getCityByCountry = (cid, result) =>{
             result(null,err);
         }else{
             console.log('City fetched successfully');
+            result(null,res);
+        }
+    })
+}
+
+// get all companys Types
+Companys.getAllCompanysTypes = (result) =>{
+    dbConn.query('SELECT * FROM company_types_table', (err, res)=>{
+        if(err){
+            console.log('Error while fetching companys Type', err);
+            result(null,err);
+        }else{
+            console.log('companys Type fetched successfully');
             result(null,res);
         }
     })
