@@ -1,6 +1,31 @@
 
 const CompanyModel = require('../models/company.model');
 
+
+
+// get company by ID
+exports.getCityByCountryID = (req, res)=>{
+    //console.log('get emp by id');
+    CompanyModel.getCityByCountry(req.params.id, (err, company)=>{
+        if(err)
+        res.send(err);
+        console.log('single employee data',company);
+        res.send(company);
+    })
+}
+
+// get all Company Type list
+exports.getCompanysTypeList = (req, res)=> {
+    //console.log('here all Company list');
+    CompanyModel.getAllCompanysTypes((err, companys) =>{
+        console.log('We are here');
+        if(err)
+        res.send(err);
+        console.log('Company', companys);
+        res.send(companys)
+    })
+}
+
 // get all Company list
 exports.getCompanysList = (req, res)=> {
     //console.log('here all Company list');
