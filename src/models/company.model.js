@@ -58,7 +58,7 @@ Companys.createCompany = (companyReqData, result) =>{
                     }
                 })
             }else{
-                result(null, "Email already exists");
+                result(null, err);
             }
         }
     })
