@@ -4,12 +4,11 @@ const CompanyModel = require('../models/base.model');
 // get countrys
 module.exports.getCountrys = (req, res)=> {
     //console.log('here all Company list');
-    CompanyModel.getAllCountrys((err, companys) =>{
-        console.log('We are here');
+    CompanyModel.getAllCountrys((err, company) =>{
         if(err)
-        res.send(err);
-        console.log('Company', companys);
-        res.send(companys)
+        res.json({status:false, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({status:true, message:"Data Fetch Successfully", data:company});
     })
 }
 
@@ -18,52 +17,51 @@ module.exports.getCityByCountryID = (req, res)=>{
     //console.log('get emp by id');
     CompanyModel.getCityByCountry(req.params.id, (err, company)=>{
         if(err)
-        res.send(err);
+        res.json({status:false, message:err, data:company});
         console.log('single employee data',company);
-        res.send(company);
+        res.json({status:true, message:"Data Fetch Successfully", data:company});
     })
 }
 
 // get all Company Types
 module.exports.getCompanysTypeList = (req, res)=> {
     //console.log('here all Company list');
-    CompanyModel.getAllCompanysTypes((err, companys) =>{
-        console.log('We are here');
+    CompanyModel.getAllCompanysTypes((err, company) =>{
         if(err)
-        res.send(err);
-        console.log('Company', companys);
-        res.send(companys)
+        res.json({status:false, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({status:true, message:"Data Fetch Successfully", data:company});
     })
 }
 
 
 module.exports.getUserType = (req, res)=> {
     //console.log('here all Company list');
-    CompanyModel.getAllUserTypes((err, companys) =>{
+    CompanyModel.getAllUserTypes((err, company) =>{
         console.log('We are here');
         if(err)
-        res.send(err);
-        console.log('Company', companys);
-        res.send(companys)
+        res.json({status:false, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({status:true, message:"Data Fetch Successfully", data:company});
     })
 }
 
 module.exports.getAttendanceTypes = (req, res)=>{
-    CompanyModel.getAttendanceTypes((err, companys) =>{
+    CompanyModel.getAttendanceTypes((err, company) =>{
         console.log('We are here');
         if(err)
-        res.send(err);
-        console.log('Company', companys);
-        res.send(companys)
+        res.json({status:false, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({status:true, message:"Data Fetch Successfully", data:company});
     })
 }
 
 module.exports.getInventoryTypes = (req, res)=>{
-    CompanyModel.getAllInventoryTypes((err, companys) =>{
+    CompanyModel.getAllInventoryTypes((err, company) =>{
         console.log('We are here');
         if(err)
-        res.send(err);
-        console.log('Company', companys);
-        res.send(companys)
+        res.json({status:false, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({status:true, message:"Data Fetch Successfully", data:company});
     })
 }

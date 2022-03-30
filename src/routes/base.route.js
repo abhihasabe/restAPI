@@ -10,15 +10,15 @@ router.get('/getCountries',companysController.getCountrys);
 router.get('/getCityByCountryID/:id',companysController.getCityByCountryID);
 
 // get all companys Type
-router.get('/getcompanytypes', companysController.getCompanysTypeList);
+router.get('/getCompanyTypes', companysController.getCompanysTypeList);
 
 //get all User Typs
-router.get('/getUsertypes', companysController.getUserType);
+router.get('/getUserTypes', companysController.getUserType);
 
 //get Attendance Type
-router.get('/getattendancetypes', companysController.getAttendanceTypes);
+router.get('/getAttendanceTypes', companysController.getAttendanceTypes);
 
 //get Inventory Type
-router.get('/getinventorytypes', companysController.getInventoryTypes);
+router.get('/getInventoryTypes', companysController.getInventoryTypes);
 
 module.exports = router;
