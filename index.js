@@ -84,6 +84,4 @@ app.use('/api/v1/manager',managerRoutes);
 // listen to the port
 app.listen(port, ()=>{
     console.log(`Express is running at port ${port}`);
-
-
 });
