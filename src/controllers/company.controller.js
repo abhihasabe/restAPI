@@ -37,7 +37,7 @@ exports.createNewCompany = (req, res) =>{
             if(err)
                 res.json({status:false, message:err, data:company});
                 console.log('single employee data',company);
-                res.json({status:true, message:"Data Fetch Successfully", data:company});
+                res.json({status:true, message:"Data Fetch Successfully"});
         })
     }
 }
@@ -55,7 +55,7 @@ exports.updateCompany = (req, res)=>{
             if(err)
                 res.json({status:false, message:err, data:company});
                 console.log('single employee data',company);
-                res.json({status:true, message:"Company Update Successfully", data:company});
+                res.json({status:true, message:"Company Update Successfully"});
         })
     }
 }
@@ -67,6 +67,6 @@ exports.deleteCompany = (req, res)=>{
         if(err)
         res.json({status:false, message:err, data:company});
         console.log('single employee data',company);
-        res.json({status:true, message:"Company Delete Successfully", data:company});
+        res.json({status:true, message:"Company Delete Successfully"});
     })
 }
