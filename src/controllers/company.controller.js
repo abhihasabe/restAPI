@@ -4,12 +4,12 @@ const CompanyModel = require('../models/company.model');
 // get all Company list
 exports.getCompanysList = (req, res)=> {
     //console.log('here all Company list');
-    CompanyModel.getAllCompanys((err, companys) =>{
+    CompanyModel.getAllCompanys((err, company) =>{
         console.log('We are here');
         if(err)
-        res.send(err);
-        console.log('Company', companys);
-        res.send(companys)
+        res.json({status:false, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({status:true, message:"Data Fetch Successfully", data:company});
     })
 }
 
@@ -18,9 +18,9 @@ exports.getCompanyByID = (req, res)=>{
     //console.log('get emp by id');
     CompanyModel.getCompanyByID(req.params.id, (err, company)=>{
         if(err)
-        res.send(err);
+        res.json({status:false, message:err, data:company});
         console.log('single employee data',company);
-        res.send(company);
+        res.json({status:true, message:"Data Fetch Successfully", data:company});
     })
 }
 
@@ -35,8 +35,9 @@ exports.createNewCompany = (req, res) =>{
     }else{
         CompanyModel.createCompany(companyReqData, (err, company)=>{
             if(err)
-            res.send(err);
-            res.json({status: true, message: 'Company Created Successfully', data: company.insertId})
+                res.json({status:false, message:err, data:company});
+                console.log('single employee data',company);
+                res.json({status:true, message:"Data Fetch Successfully", data:company});
         })
     }
 }
@@ -52,8 +53,9 @@ exports.updateCompany = (req, res)=>{
     }else{
         CompanyModel.updateCompany(req.params.id, companyReqData, (err, company)=>{
             if(err)
-            res.send(err);
-            res.json({status: true, message: 'Company updated Successfully'})
+                res.json({status:false, message:err, data:company});
+                console.log('single employee data',company);
+                res.json({status:true, message:"Company Update Successfully", data:company});
         })
     }
 }
@@ -63,7 +65,8 @@ exports.updateCompany = (req, res)=>{
 exports.deleteCompany = (req, res)=>{
     CompanyModel.deleteCompany(req.params.id, (err, company)=>{
         if(err)
-        res.send(err);
-        res.json({success:true, message: 'Company deleted successully!'});
+        res.json({status:false, message:err, data:company});
+        console.log('single employee data',company);
+        res.json({status:true, message:"Company Delete Successfully", data:company});
     })
 }

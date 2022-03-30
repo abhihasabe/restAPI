@@ -4,12 +4,12 @@ const EmployeeModel = require('../models/employee.model');
 // get all employee list
 exports.getEmployeeList = (req, res)=> {
     //console.log('here all employees list');
-    EmployeeModel.getAllEmployees((err, employees) =>{
+    EmployeeModel.getAllEmployees((err, employee) =>{
         console.log('We are here');
         if(err)
-        res.send(err);
-        console.log('Employees', employees);
-        res.send(employees)
+        res.json({status:false, message:err, data:employee});
+        console.log('single employee data',employee);
+        res.json({status:true, message:"Data Fetch Successfully", data:employee});
     })
 }
 
@@ -18,9 +18,10 @@ exports.getEmployeeByID = (req, res)=>{
     //console.log('get emp by id');
     EmployeeModel.getEmployeeByID(req.params.id, (err, employee)=>{
         if(err)
-        res.send(err);
+        if(err)
+        res.json({status:false, message:err, data:employee});
         console.log('single employee data',employee);
-        res.send(employee);
+        res.json({status:true, message:"Data Fetch Successfully", data:employee});
     })
 }
 
@@ -34,8 +35,9 @@ exports.createNewEmployee = (req, res) =>{
     }else{
         EmployeeModel.createEmployee(employeeReqData, (err, employee)=>{
             if(err)
-            res.send(err);
-            res.json({status: true, message: 'Employee Created Successfully', data: employee.insertId})
+                res.json({status:false, message:err, data:employee});
+                console.log('single employee data',employee);
+                res.json({status:true, message:"Data Fetch Successfully", data:employee});
         })
     }
 }
@@ -50,8 +52,9 @@ exports.updateEmployee = (req, res)=>{
     }else{
         EmployeeModel.updateEmployee(req.params.id, employeeReqData, (err, employee)=>{
             if(err)
-            res.send(err);
-            res.json({status: true, message: 'Employee updated Successfully'})
+                res.json({status:false, message:err, data:employee});
+                console.log('single employee data',employee);
+                res.json({status:true, message:"Data Fetch Successfully", data:employee});
         })
     }
 }
@@ -60,7 +63,8 @@ exports.updateEmployee = (req, res)=>{
 exports.deleteEmployee = (req, res)=>{
     EmployeeModel.deleteEmployee(req.params.id, (err, employee)=>{
         if(err)
-        res.send(err);
-        res.json({success:true, message: 'Employee deleted successully!'});
+        res.json({status:false, message:err, data:employee});
+        console.log('single employee data',employee);
+        res.json({status:true, message:"Employee Deleted Successfully", data:employee});
     })
 }
