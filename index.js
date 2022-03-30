@@ -14,7 +14,7 @@ app.use(cors({
 }));
 
 // setup the server port
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 // parse request data content type application/x-www-form-rulencoded
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,6 +26,10 @@ app.use(bodyParser.json());
 app.get('/', (req, res)=>{
     res.send('Hello World');
 });
+
+// import Base routes
+const baseRoutes = require('./src/routes/base.route');
+
 // import employee routes
 const employeeRoutes = require('./src/routes/employee.route');
 
@@ -49,6 +53,9 @@ const showtaskRoutes = require('./src/routes/showtask.route');
 
 // import manager routes
 const managerRoutes = require('./src/routes/manager.route');
+
+// create base routes
+app.use('/api/v1/base', baseRoutes);
 
 // create employee routes
 app.use('/api/v1/employee', employeeRoutes);
