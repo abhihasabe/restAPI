@@ -15,4 +15,7 @@ router.get('/getcompanytypes', companysController.getCompanysTypeList);
 //get all User Typs
 router.get('/getUsertypes', companysController.getUserType);
 
+//get Attendance Type
+router.get('/getattendancetypes', companysController.getAttendanceTypes);
+
 module.exports = router;

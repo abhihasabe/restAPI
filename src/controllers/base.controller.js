@@ -1,7 +1,8 @@
+const req = require('express/lib/request');
 const CompanyModel = require('../models/base.model');
 
 // get countrys
-exports.getCountrys = (req, res)=> {
+module.exports.getCountrys = (req, res)=> {
     //console.log('here all Company list');
     CompanyModel.getAllCountrys((err, companys) =>{
         console.log('We are here');
@@ -13,7 +14,7 @@ exports.getCountrys = (req, res)=> {
 }
 
 // get city by Country ID
-exports.getCityByCountryID = (req, res)=>{
+module.exports.getCityByCountryID = (req, res)=>{
     //console.log('get emp by id');
     CompanyModel.getCityByCountry(req.params.id, (err, company)=>{
         if(err)
@@ -24,7 +25,7 @@ exports.getCityByCountryID = (req, res)=>{
 }
 
 // get all Company Types
-exports.getCompanysTypeList = (req, res)=> {
+module.exports.getCompanysTypeList = (req, res)=> {
     //console.log('here all Company list');
     CompanyModel.getAllCompanysTypes((err, companys) =>{
         console.log('We are here');
@@ -36,9 +37,19 @@ exports.getCompanysTypeList = (req, res)=> {
 }
 
 
-exports.getUserType = (req, res)=> {
+module.exports.getUserType = (req, res)=> {
     //console.log('here all Company list');
     CompanyModel.getAllUserTypes((err, companys) =>{
+        console.log('We are here');
+        if(err)
+        res.send(err);
+        console.log('Company', companys);
+        res.send(companys)
+    })
+}
+
+module.exports.getAttendanceTypes = (req, res)=>{
+    CompanyModel.getAttendanceTypes((err, companys) =>{
         console.log('We are here');
         if(err)
         res.send(err);
