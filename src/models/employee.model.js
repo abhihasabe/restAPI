@@ -6,19 +6,6 @@ var Employee = function(employee){
     this.employee_phone_number  =   employee.employee_phone_number;
 }
 
-// get all Country
-Employee.getAllCountrys = (result) =>{
-    dbConn.query('SELECT * FROM country_table', (err, res)=>{
-        if(err){
-            console.log('Error while fetching employees', err);
-            result(null,err);
-        }else{
-            console.log('employees fetched successfully');
-            result(null,res);
-        }
-    })
-}
-
 // get all employees
 Employee.getAllEmployees = (result) =>{
     dbConn.query('SELECT * FROM employee_table', (err, res)=>{
