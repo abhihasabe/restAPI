@@ -36,8 +36,7 @@ exports.createNewCompany = (req, res) =>{
         CompanyModel.createCompany(companyReqData, (err, company)=>{
             if(err){
                 res.json({status:false, message:err});
-                console.log('single employee data',company);
-            }else if(company =="Email Already Exists") {
+            }else if(company == "Email Already Exists") {
                 res.json({status:false, message:company});
             }else{
                 res.json({status:true, message:"Data Added Successfully", data:company});
