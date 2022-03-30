@@ -34,12 +34,10 @@ exports.createNewCompany = (req, res) =>{
         res.send(400).send({success: false, message: 'Please fill all fields'});
     }else{
         CompanyModel.createCompany(companyReqData, (err, company)=>{
-            if(err){
-                res.json({status:false, message:"Email already exists"});
-                console.log('single employee data',company);
-            }else{
-                res.json({status:true, message:"Data Fetch Successfully", data:company});
-            }
+            if(err)
+            res.json({status:false, message:"Email already exists"});
+            console.log('single employee data',company);
+            res.json({status:true, message:"Data Fetch Successfully", data:company});
         })
     }
 }
