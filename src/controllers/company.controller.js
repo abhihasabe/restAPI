@@ -38,7 +38,7 @@ exports.createNewCompany = (req, res) =>{
                 res.json({status:false, message:"Email already exists"});
                 console.log('single employee data',company);
             }else{
-                res.json({status:true, message:"Data Fetch Successfully", data:company});
+                res.json({status:true, message:"Data Fetch Successfully"});
             }
         })
     }
