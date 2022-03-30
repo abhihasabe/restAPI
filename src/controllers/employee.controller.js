@@ -37,7 +37,7 @@ exports.createNewEmployee = (req, res) =>{
             if(err)
                 res.json({status:false, message:err, data:employee});
                 console.log('single employee data',employee);
-                res.json({status:true, message:"Data Fetch Successfully", data:employee});
+                res.json({status:true, message:"Data Fetch Successfully"});
         })
     }
 }
@@ -54,7 +54,7 @@ exports.updateEmployee = (req, res)=>{
             if(err)
                 res.json({status:false, message:err, data:employee});
                 console.log('single employee data',employee);
-                res.json({status:true, message:"Data Fetch Successfully", data:employee});
+                res.json({status:true, message:"Data Fetch Successfully"});
         })
     }
 }
@@ -65,6 +65,6 @@ exports.deleteEmployee = (req, res)=>{
         if(err)
         res.json({status:false, message:err, data:employee});
         console.log('single employee data',employee);
-        res.json({status:true, message:"Employee Deleted Successfully", data:employee});
+        res.json({status:true, message:"Employee Deleted Successfully"});
     })
 }
