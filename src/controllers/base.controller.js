@@ -57,3 +57,13 @@ module.exports.getAttendanceTypes = (req, res)=>{
         res.send(companys)
     })
 }
+
+module.exports.getInventoryTypes = (req, res)=>{
+    CompanyModel.getAllInventoryTypes((err, companys) =>{
+        console.log('We are here');
+        if(err)
+        res.send(err);
+        console.log('Company', companys);
+        res.send(companys)
+    })
+}
