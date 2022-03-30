@@ -40,47 +40,39 @@ Companys.getCompanyByID = (id, result)=>{
 }
 
 
-Companys.createCompany = (companyReqData, result) =>{
-    dbConn.query('INSERT INTO company_table SET ? ', companyReqData, (err, res)=>{
-        if(err){
-            console.log('Error while inserting data');
-            result(null, err);
-        }else{
-            console.log('employees created successfully');
-            result(null, res)
-        }
-    })
-}
-
-// // create new company
 // Companys.createCompany = (companyReqData, result) =>{
 //     dbConn.query('INSERT INTO company_table SET ? ', companyReqData, (err, res)=>{
 //         if(err){
 //             console.log('Error while inserting data');
 //             result(null, err);
 //         }else{
-//             console.log('company created successfully');
+//             console.log('employees created successfully');
 //             result(null, res)
 //         }
-//     });
-//     // dbConn.query('SELECT * FROM company_table WHERE company_email=?', companyReqData.company_email, (err, res)=>{
-//     //     if(err){
-//     //         console.log('Error while fetching companys by id', err);
-//     //         result(null, err);
-//     //     }else{
-//     //         console.log('Error while fetching companys by id',res);
-//     //         dbConn.query('INSERT INTO company_table SET ? ', companyReqData, (err, res)=>{
-//     //             if(err){
-//     //                 console.log('Error while inserting data');
-//     //                 result(null, err);
-//     //             }else{
-//     //                 console.log('company created successfully');
-//     //                 result(null, res)
-//     //             }
-//     //         })
-//     //     }
-//     // })
+//     })
 // }
+
+// create new company
+Companys.createCompany = (companyReqData, result) =>{
+    dbConn.query('SELECT * FROM company_table WHERE company_email=?', companyReqData.company_email, (err, res)=>{
+        if(err){
+            console.log('Error while fetching companys by id', err);
+            result(null, err);
+        }else{
+            console.log('Error while fetching companys by id',res);
+            result(null, res);
+            // dbConn.query('INSERT INTO company_table SET ? ', companyReqData, (err, res)=>{
+            //     if(err){
+            //         console.log('Error while inserting data');
+            //         result(null, err);
+            //     }else{
+            //         console.log('company created successfully');
+            //         result(null, res)
+            //     }
+            // })
+        }
+    })
+}
 
 // update company
 Companys.updateCompany = (id, companyReqData, result)=>{
