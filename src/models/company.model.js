@@ -71,7 +71,7 @@ Companys.createCompany = (companyReqData, result) =>{
                     }
                 });
             }else{
-                result(null, err);
+                result(null, "err");
             }
         }
     })
