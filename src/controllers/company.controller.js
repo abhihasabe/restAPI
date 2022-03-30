@@ -38,7 +38,7 @@ exports.createNewCompany = (req, res) =>{
                 res.json({status:false, message:err});
                 console.log('single employee data',company);
             }else{
-                res.json({status:true, message:"Data Added Successfully", data:company});
+                res.json({status:true, message:"Data Added Successfully", data:err});
             }
         })
     }
