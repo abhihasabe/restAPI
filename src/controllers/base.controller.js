@@ -34,3 +34,15 @@ exports.getCompanysTypeList = (req, res)=> {
         res.send(companys)
     })
 }
+
+
+exports.getUserType = (req, res)=> {
+    //console.log('here all Company list');
+    CompanyModel.getAllUserTypes((err, companys) =>{
+        console.log('We are here');
+        if(err)
+        res.send(err);
+        console.log('Company', companys);
+        res.send(companys)
+    })
+}
