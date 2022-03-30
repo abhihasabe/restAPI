@@ -12,4 +12,7 @@ router.get('/getCityByCountryID/:id',companysController.getCityByCountryID);
 // get all companys Type
 router.get('/getcompanytypes', companysController.getCompanysTypeList);
 
+// get all User Type
+router.get('/getusertypes', companysController.getUserTypeList);
+
 module.exports = router;
