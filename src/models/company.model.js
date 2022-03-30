@@ -47,7 +47,7 @@ Companys.createCompany = (companyReqData, result) =>{
             result(null, err);
         }else{
             console.log('Error while fetching companys by id',res);
-            if(res.company_email!=null){
+            if(res.length!=0){
                 result(null, err);
             }else{
                 dbConn.query('INSERT INTO company_table SET ? ', companyReqData, (err, res)=>{
