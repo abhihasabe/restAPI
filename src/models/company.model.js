@@ -61,19 +61,19 @@ Companys.createCompany = (companyReqData, result) =>{
         }else{
             console.log('Error while fetching companys by id',res);
             result(null, res.length);
-            // if(res==null){
-            //     dbConn.query('INSERT INTO company_table SET ? ', companyReqData, (err, res)=>{
-            //         if(err){
-            //             console.log('Error while inserting data');
-            //             result(null, err);
-            //     }   else{
-            //             console.log('company created successfully');
-            //             result(null, res)
-            //         }
-            //     });
-            // }else{
-            //     result(null, err);
-            // }
+            if(res.length>0){
+                dbConn.query('INSERT INTO company_table SET ? ', companyReqData, (err, res)=>{
+                    if(err){
+                        console.log('Error while inserting data');
+                        result(null, err);
+                }   else{
+                        console.log('company created successfully');
+                        result(null, res)
+                    }
+                });
+            }else{
+                result(null, res.length);
+            }
         }
     })
 }
