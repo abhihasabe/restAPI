@@ -52,10 +52,15 @@ exports.updateCompany = (req, res)=>{
         res.send(400).send({success: false, message: 'Please fill all fields'});
     }else{
         CompanyModel.updateCompany(req.params.id, companyReqData, (err, company)=>{
-            if(err)
+            if(err){
                 res.json({status:false, message:err, data:company});
+            } else if(!company){
+                res.json({status:false, message:"Failed to Update Company"});
+            }
+            else{
                 console.log('single employee data',company);
                 res.json({status:true, message:"Company Update Successfully"});
+            }
         })
     }
 }

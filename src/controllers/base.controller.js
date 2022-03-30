@@ -6,9 +6,9 @@ module.exports.getCountrys = (req, res)=> {
     //console.log('here all Company list');
     CompanyModel.getAllCountrys((err, company) =>{
         if(err)
-        res.json({status:false, message:err, data:company});
+        res.status(500).json({success:0, message:err, data:company});
         console.log('single employee data',company);
-        res.json({status:true, message:"Data Fetch Successfully", data:company});
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
     })
 }
 
@@ -17,9 +17,9 @@ module.exports.getCityByCountryID = (req, res)=>{
     //console.log('get emp by id');
     CompanyModel.getCityByCountry(req.params.id, (err, company)=>{
         if(err)
-        res.json({status:false, message:err, data:company});
+        res.json({success:0, message:err, data:company});
         console.log('single employee data',company);
-        res.json({status:true, message:"Data Fetch Successfully", data:company});
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
     })
 }
 
@@ -28,9 +28,9 @@ module.exports.getCompanysTypeList = (req, res)=> {
     //console.log('here all Company list');
     CompanyModel.getAllCompanysTypes((err, company) =>{
         if(err)
-        res.json({status:false, message:err, data:company});
+        res.json({success:0, message:err, data:company});
         console.log('single employee data',company);
-        res.json({status:true, message:"Data Fetch Successfully", data:company});
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
     })
 }
 
@@ -40,9 +40,9 @@ module.exports.getUserType = (req, res)=> {
     CompanyModel.getAllUserTypes((err, company) =>{
         console.log('We are here');
         if(err)
-        res.json({status:false, message:err, data:company});
+        res.json({success:0, message:err, data:company});
         console.log('single employee data',company);
-        res.json({status:true, message:"Data Fetch Successfully", data:company});
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
     })
 }
 
@@ -50,9 +50,9 @@ module.exports.getAttendanceTypes = (req, res)=>{
     CompanyModel.getAttendanceTypes((err, company) =>{
         console.log('We are here');
         if(err)
-        res.json({status:false, message:err, data:company});
+        res.json({success:0, message:err, data:company});
         console.log('single employee data',company);
-        res.json({status:true, message:"Data Fetch Successfully", data:company});
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
     })
 }
 
@@ -60,8 +60,8 @@ module.exports.getInventoryTypes = (req, res)=>{
     CompanyModel.getAllInventoryTypes((err, company) =>{
         console.log('We are here');
         if(err)
-        res.json({status:false, message:err, data:company});
+        res.json({success:0, message:err, data:company});
         console.log('single employee data',company);
-        res.json({status:true, message:"Data Fetch Successfully", data:company});
+        res.json({success:1, message:"Data Fetch Successfully", data:company});
     })
 }
