@@ -61,7 +61,7 @@ Companys.createCompany = (companyReqData, result) =>{
         }else{
             console.log('Error while fetching companys by id',res);
 
-            result(null, res.company_email);
+            result(null, res);
             
             // if(res!=null){
             //     result(null, err);
